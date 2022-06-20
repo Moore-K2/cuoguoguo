@@ -1,28 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- router指定的展示内容--位置 -->
+    <router-view> </router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: {},
+};
 </script>
 
 <style>
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  /* vh就是当前屏幕可见高度的1%，也就是说height:100vh == height:100%;
+  但是当元素没有内容时候，设置height:100%，该元素不会被撑开，此时高度为0，
+  但是设置height:100vh，该元素会被撑开屏幕高度一致。 */
+  height: 100vh;
 }
 </style>
