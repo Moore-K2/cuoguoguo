@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- router指定的展示内容--位置 -->
-    <router-view> </router-view>
+    <router-view></router-view>
   </div>
 </template>
 
