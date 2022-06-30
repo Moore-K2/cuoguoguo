@@ -9,8 +9,15 @@
       :collapse="isCollapse"
       router
     >
-      <h3 :style="isCollapse ? 'color: red' : 'color:#409eff'">
-        {{ isCollapse ? "Moore" : "搓果果 ♦ 智慧茶楼" }}
+      <span class="super">
+        <img
+          :src="superimg"
+          :style="isCollapse ? 'display:none' : 'display:block'"
+          alt=""
+        />
+      </span>
+      <h3 :style="isCollapse ? 'color: red;margin-top:30px' : 'color:#409eff'">
+        {{ isCollapse ? "Moore" : "光之国 " }}
       </h3>
       <!-- 菜单：遍历首页，数据，提现，订单，门店，会员，账号，运营，设置 -->
       <el-menu-item
@@ -32,6 +39,7 @@ export default {
   name: "CommonAside",
   data() {
     return {
+      superimg: require("../assets/img/super.png"),
       // 是否折叠
       // isCollapse: true,
       // 定义接口数组，用于渲染侧边栏
@@ -154,10 +162,30 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.super {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  margin-top: 15px;
+  height: 45px;
+  border-radius: 15px;
+  display: block;
+
+  // visibility: hidden;
+}
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
   min-height: 400px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+.el-menu h3::before {
+  content: " ";
+  display: block;
+  width: 20px;
+  // background: url("../assets/img/super.png") center center no-repeat;
+  // background-size: 15px auto;
 }
 .el-menu {
   // vh是屏幕视角
@@ -165,8 +193,8 @@ export default {
   // height:100%;
   border: none;
   h3 {
-    margin-top: 30px;
-    font-size: 18px;
+    margin-top: 10px;
+    font-size: 20px;
     text-align: center;
     line-height: 39px;
     color: #fff;

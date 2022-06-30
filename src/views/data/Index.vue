@@ -1,12 +1,27 @@
 <template>
   <div>
-    <h1 style="padding-top: 40px">我是数据</h1>
+    <div class="data" :style="{ backgroundImage: 'url(' + bg + ')' }"></div>
   </div>
 </template>
 
 <script>
-export default {};
+import bg1 from "../../assets/img/107.png";
+export default {
+  name: "Index",
+  data() {
+    return {
+      bg: bg1,
+    };
+  },
+};
 </script>
 
 <style>
+.data {
+  margin-top: 15px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 75vh;
+  box-shadow: 0 0 10px black;
+}
 </style>
