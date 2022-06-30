@@ -21,7 +21,7 @@
           <router-view></router-view>
         </el-main>
         <!-- 4. 未来整一个footer -->
-        <el-footer style="font-size: 30px; color: blue; text-align: center"
+        <el-footer style="font-size: 30px; color: pink; text-align: center"
           >I am Footer</el-footer
         >
       </el-container>
