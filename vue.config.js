@@ -9,7 +9,6 @@ function resolve(dir) {
 module.exports = {
     lintOnSave: process.env.NODE_ENV === "development",
     configureWebpack: {
-        name: name,
         resolve: {
             alias: {
                 "@": resolve("src"),
