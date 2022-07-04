@@ -1,22 +1,35 @@
 <template>
   <div>
-    <div class="container">
-      <!-- 走马灯 -->
-      <div class="carousel" :style="{ transform: `translateX(-${this.i}00%)` }">
-        <div class="item" v-for="(item, index) in List" :key="index">
-          <img :src="item.img" />
-        </div>
-      </div>
-      <!-- 指示器 -->
-      <div class="indicator">
-        <span
-          v-for="(item, index) in List"
-          :key="index"
-          :class="index == i ? 'active' : ''"
-          @click="moveTo(index)"
-        ></span>
-      </div>
-    </div>
+    <el-row :gutter="30">
+      <!-- 左 -->
+      <el-col :span="8">
+        <div class="grid-content bg-purple">
+          <div class="container">
+            <!-- 走马灯 -->
+            <div
+              class="carousel"
+              :style="{ transform: `translateX(-${this.i}00%)` }"
+            >
+              <div class="item" v-for="(item, index) in List" :key="index">
+                <img :src="item.img" />
+              </div>
+            </div>
+            <!-- 指示器 -->
+            <div class="indicator">
+              <span
+                v-for="(item, index) in List"
+                :key="index"
+                :class="index == i ? 'active' : ''"
+                @click="moveTo(index)"
+              ></span>
+            </div>
+          </div></div
+      ></el-col>
+      <!-- 中 -->
+      <el-col :span="8"> </el-col>
+      <!-- 右 -->
+      <el-col :span="8"> <div class="grid-content bg-purple"></div></el-col>
+    </el-row>
   </div>
 </template>
 
@@ -34,6 +47,7 @@ export default {
         { img: require("@/assets/img/95.jpg") },
         { img: require("@/assets/img/96.jpg") },
       ],
+      images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
     };
   },
   methods: {
@@ -41,24 +55,29 @@ export default {
       this.i = index;
     },
   },
-  // 自动播放
-  // created() {
-  //   setInterval(() => {
-  //     if (this.i < this.List.length) {
-  //       this.i++;
-  //     } else {
-  //       this.i = 0;
-  //     }
-  //   }, 1500);
-  // },
 };
 </script>
 
 <style lang="less" scoped>
+.el-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.el-col {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+// .bg-purple {
+//   background: #d3dce6;
+// }
+
 .container {
   width: 400px;
   height: 660px;
-  margin: 10px auto;
+  margin: 2px auto;
   overflow: hidden;
   border-radius: 10px;
   position: relative; // 便于indicator定位
