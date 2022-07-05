@@ -60,25 +60,36 @@ export default {
       scrollbar: {
         el: ".swiper-scrollbar",
       },
-      //   effect: "cube",
-      //   cubeEffect: {
-      //     slideShadows: true,
-      //     shadow: true,
-      //     shadowOffset: 100,
-      //     shadowScale: 0.6,
-      //   },
+      // 自动切换
+      autoplay: true,
+      // 切换样式
+      // effect: "coverflow",
+      // effect: "fade",
+      effect: "cube",
+      cubeEffect: {
+        slideShadows: true,
+        shadow: true,
+        shadowOffset: 100,
+        shadowScale: 0.6,
+      },
     });
+  },
+  mounted() {
+    console.log(this.banners.length);
   },
 };
 </script>
 
 <style>
-.swiper-demo {
+.swiper-container {
   width: 760px;
   height: 500px;
-  margin: 40px auto;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 10px;
 }
-.swiper-container {
+
+.swiper-slide img {
   width: 100%;
   height: 100%;
 }

@@ -1,8 +1,18 @@
 <template>
   <div>
-    <el-row type="flex" justify="space-between" :gutter="20">
+    <el-row type="flex" justify="space-between" :gutter="5">
       <!-- 左 -->
       <el-col :span="8">
+        <h2
+          style="
+            text-align: center;
+            line-height: 20px;
+            margin-top: 20px;
+            font-size: 20px;
+          "
+        >
+          CSS3 transform实现
+        </h2>
         <div class="grid-content bg-purple">
           <div class="container">
             <!-- 走马灯 -->
@@ -26,7 +36,17 @@
           </div></div
       ></el-col>
       <!-- 中 -->
-      <el-col :span="16">
+      <el-col :span="15">
+        <h2
+          style="
+            text-align: center;
+            line-height: 20px;
+            margin-top: 20px;
+            font-size: 20px;
+          "
+        >
+          Swiper YYDS
+        </h2>
         <SwiperDemo />
       </el-col>
       <!-- 右 -->
@@ -81,7 +101,7 @@ export default {
 .container {
   width: 400px;
   height: 660px;
-  margin: 2px auto;
+  margin: 20px auto;
   overflow: hidden;
   border-radius: 10px;
   position: relative; // 便于indicator定位
