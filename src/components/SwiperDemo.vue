@@ -4,6 +4,7 @@
       <div class="swiper-wrapper">
         <div v-for="(item, index) in banners" :key="index" class="swiper-slide">
           <img :src="item.image" />
+          <h3>{{ item.label }}</h3>
         </div>
       </div>
       <!-- 如果需要分页器 -->
@@ -80,7 +81,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less" scoped>
 .swiper-container {
   width: 760px;
   height: 500px;
@@ -88,7 +89,18 @@ export default {
   overflow: hidden;
   border-radius: 10px;
 }
-
+.swiper-slide {
+  /*  便于h3定位 */
+  color: #fff;
+  position: relative;
+  h3 {
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+  }
+}
 .swiper-slide img {
   width: 100%;
   height: 100%;
