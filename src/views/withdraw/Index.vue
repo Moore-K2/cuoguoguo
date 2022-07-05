@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-row :gutter="30">
+    <el-row type="flex" justify="space-between" :gutter="20">
       <!-- 左 -->
       <el-col :span="8">
         <div class="grid-content bg-purple">
@@ -26,16 +26,20 @@
           </div></div
       ></el-col>
       <!-- 中 -->
-      <el-col :span="8"> </el-col>
+      <el-col :span="16">
+        <SwiperDemo />
+      </el-col>
       <!-- 右 -->
-      <el-col :span="8"> <div class="grid-content bg-purple"></div></el-col>
+      <!-- <el-col :span="8"> <div class="grid-content bg-purple"></div></el-col> -->
     </el-row>
   </div>
 </template>
 
 <script>
+import SwiperDemo from "../../components/SwiperDemo.vue";
 export default {
   name: "Index",
+  components: { SwiperDemo },
   data() {
     return {
       i: 0,
@@ -67,7 +71,7 @@ export default {
   }
 }
 .el-col {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   border-radius: 4px;
 }
 // .bg-purple {
