@@ -158,6 +158,12 @@ export default {
   mounted() {
     // console.log("@@", this.$store.state.tab.menu);
   },
+  //测试取到路由的信息 $rooter.options.routes
+  // created() {
+  //   const menuInfo = this.$router.options.routes;
+  //   console.log("路由信息menu:", menuInfo);
+
+  // },
 };
 </script>
 
