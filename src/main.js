@@ -39,7 +39,8 @@ import {
     Pagination,
     MessageBox,
     Message,
-    Footer
+    Footer,
+    Popover
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import "./assets/less/index.css"
@@ -81,6 +82,7 @@ Vue.use(Dialog)
 Vue.use(Option)
 Vue.use(Pagination)
 Vue.use(Footer)
+Vue.use(Popover)
 
 Vue.prototype.$confirm = MessageBox.confirm // 绑定messagebox的confirm到全局上
 Vue.prototype.$message = Message // 绑定message到全局上
