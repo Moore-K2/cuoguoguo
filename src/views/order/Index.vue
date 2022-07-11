@@ -2,12 +2,14 @@
   <div>
     <div class="container">
       <el-button type="success" plain @click="displayCode">随机码</el-button>
+      <el-button type="warning" plain @click="send">发送图片请求</el-button>
       <h1>{{ result }}</h1>
     </div>
   </div>
 </template>
 
 <script>
+import { get } from "@/utils/request.js";
 export default {
   name: "Index",
   data() {
@@ -26,6 +28,16 @@ export default {
       }
       return this.result;
     },
+    // 发送图片请求
+    send() {
+      // get是二次封装的方法。 url = baseURL + request url
+      get("moore/images", {}).then((res) => {
+        console.log(res.data);
+      });
+    },
+  },
+  created() {
+    // 测试axios二次封装的实例
   },
 };
 </script>

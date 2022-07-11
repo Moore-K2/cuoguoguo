@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: "", // baseURL会在发送请求时拼接在url参数前面
+    baseURL: "http://localhost:8080/", // baseURL会在发送请求时拼接在url参数前面 ;ulr = baseURL + request url
     timeout: 5000
 })
 
@@ -9,9 +9,10 @@ const instance = axios.create({
 // 我们可以在它里面为请求添加一些自定义的内容
 instance.interceptors.request.use(
     function(config) {
-        console.group("全局请求拦截")
-        console.log(config)
-        console.groupEnd()
+        // console.group("全局请求拦截")
+        // console.log(config)
+        // console.groupEnd()
+        // 请求前要做的事情写在下方
         return config
     },
     function(err) {
@@ -22,9 +23,9 @@ instance.interceptors.request.use(
 // 响应拦截
 instance.interceptors.response.use(
     function(response) {
-        console.group("全局响应拦截")
-        console.log(response);
-        console.groupEnd()
+        // console.group("全局响应拦截")
+        // console.log(response);
+        // console.groupEnd()
         return response
     },
     function(err) {

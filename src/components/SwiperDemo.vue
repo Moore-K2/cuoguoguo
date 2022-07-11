@@ -35,7 +35,7 @@ export default {
   async created() {
     // const res = await axios.get("http://localhost:5000/images");
     const res = await axios.get("http://localhost:8080/moore/images");
-    console.log("图像数据为：", res.data);
+    console.log("图像数据为：", res);
     this.banners = res.data;
   },
   // 这儿本来是mounted()、但只能显示一张图片、是因为created()是异步请求，而mounted是同步的生命周期、
