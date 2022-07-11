@@ -26,17 +26,21 @@ import "swiper/css/swiper.min.css";
 import axios from "axios";
 export default {
   name: "SwiperDemo",
+  props: {
+    banners: Array,
+  },
   data() {
     return {
-      banners: [],
+      // banners: this.banners,
     };
   },
   methods: {},
   async created() {
     // const res = await axios.get("http://localhost:5000/images");
-    const res = await axios.get("http://localhost:8080/moore/images");
-    console.log("图像数据为：", res);
-    this.banners = res.data;
+    // const res = await axios.get("http://localhost:8080/moore/images");
+    // console.log("图像数据为：", res);
+    // this.banners = res.data;
+    // console.log("!!!", this.banners);
   },
   // 这儿本来是mounted()、但只能显示一张图片、是因为created()是异步请求，而mounted是同步的生命周期、
   // 需要我们要在把banners更新完毕后去初始化swiper

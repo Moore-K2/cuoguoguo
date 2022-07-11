@@ -47,7 +47,7 @@
         >
           Swiper实现
         </h2>
-        <SwiperDemo />
+        <SwiperDemo :banners="banner" />
       </el-col>
       <!-- 右 -->
       <!-- <el-col :span="8"> <div class="grid-content bg-purple"></div></el-col> -->
@@ -57,6 +57,7 @@
 
 <script>
 import SwiperDemo from "../../components/SwiperDemo.vue";
+import { get } from "@/utils/request.js";
 export default {
   name: "Index",
   components: { SwiperDemo },
@@ -71,13 +72,25 @@ export default {
         { img: require("@/assets/img/95.jpg") },
         { img: require("@/assets/img/96.jpg") },
       ],
-      images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
+      // images: ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
+      // 传入swiper中的数据
+      banner: [],
     };
   },
   methods: {
     moveTo(index) {
       this.i = index;
     },
+  },
+  created() {
+    get("moore/images", {}).then(
+      (res) => {
+        this.banner = res.data;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   },
 };
 </script>
