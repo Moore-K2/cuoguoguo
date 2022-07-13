@@ -1,38 +1,36 @@
 <template>
   <div>
     <div class="container">
-      <el-button type="success" plain @click="displayCode">随机码</el-button>
       <el-button type="warning" plain @click="send">发送图片请求</el-button>
-      <h1>{{ result }}</h1>
+      <el-row type="flex" justify="space-between" :gutter="5">
+        <el-col :span="4">
+          <SwiperDemo :banners="banner" />
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
 
 <script>
 import { get } from "@/utils/request.js";
+import SwiperDemo from "@/components/SwiperDemo.vue";
 export default {
   name: "Index",
+  components: {
+    SwiperDemo,
+  },
   data() {
     return {
-      str: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-      result: "",
+      banner: [],
     };
   },
   methods: {
-    displayCode() {
-      const arr = this.str.split("");
-      for (var i = 0; i < 6; i++) {
-        // n 在(0, arr.length)范围内
-        var n = Math.floor(Math.random() * arr.length);
-        this.result += arr[n];
-      }
-      return this.result;
-    },
     // 发送图片请求
     send() {
       // get是二次封装的方法。 url = baseURL + request url
       get("moore/images", {}).then((res) => {
         console.log(res.data);
+        this.banner = res.data;
       });
     },
   },

@@ -27,7 +27,7 @@ import axios from "axios";
 export default {
   name: "SwiperDemo",
   props: {
-    banners: Array,
+    banners: { type: Array, default: null },
   },
   data() {
     return {

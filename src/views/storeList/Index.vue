@@ -1,18 +1,15 @@
 <template>
   <div>
-    <h1 style="padding-top: 40px">测试table</h1>
-
-    <el-table :data="tableData" style="width: 80%">
+    <el-table :data="tableData" style="width: 100%">
       <el-table-column label="日期" width="180">
-        <!-- 通过 Scoped slot 可以获取到 row, column, $index 和 store（table 内部的状态管理）的数据 -->
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
-          <span style="margin-left: 10px">{{ scope.row["date"] }}</span>
+          <span style="margin-left: 10px">{{ scope.row.date }}</span>
         </template>
       </el-table-column>
       <el-table-column label="姓名" width="180">
         <template slot-scope="scope">
-          <el-popover trigger="focus" placement="top">
+          <el-popover trigger="hover" placement="top">
             <p>姓名: {{ scope.row.name }}</p>
             <p>住址: {{ scope.row.address }}</p>
             <div slot="reference" class="name-wrapper">
@@ -23,16 +20,15 @@
       </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">
-            编辑
-          </el-button>
+          <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
+            >编辑</el-button
+          >
           <el-button
             size="mini"
             type="danger"
             @click="handleDelete(scope.$index, scope.row)"
+            >删除</el-button
           >
-            删除
-          </el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -40,31 +36,51 @@
 </template>
 
 <script>
+import CommonTable from "@/components/CommonTable.vue";
+import { get } from "@/utils/request.js";
 export default {
+  components: {
+    CommonTable,
+  },
   data() {
     return {
-      tableData: [
+      tableData: [],
+      tableLabel: [
         {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
+          prop: "date",
+          label: "日期",
         },
         {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄",
+          prop: "name",
+          label: "姓名",
         },
         {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄",
-        },
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄",
+          prop: "address",
+          label: "地址",
         },
       ],
+      // tableData: [
+      //   {
+      //     date: "2016-05-02",
+      //     name: "王小虎",
+      //     address: "上海市普陀区金沙江路 1518 弄",
+      //   },
+      //   {
+      //     date: "2016-05-04",
+      //     name: "王小虎",
+      //     address: "上海市普陀区金沙江路 1517 弄",
+      //   },
+      //   {
+      //     date: "2016-05-01",
+      //     name: "王小虎",
+      //     address: "上海市普陀区金沙江路 1519 弄",
+      //   },
+      //   {
+      //     date: "2016-05-03",
+      //     name: "王小虎",
+      //     address: "上海市普陀区金沙江路 1516 弄",
+      //   },
+      // ],
     };
   },
   methods: {
@@ -74,6 +90,17 @@ export default {
     handleDelete(index, row) {
       console.log(index, row);
     },
+  },
+  created() {
+    get("api/personInfo", {}).then(
+      (res) => {
+        this.tableData = res.data;
+        console.log(this.tableData);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   },
 };
 </script>
