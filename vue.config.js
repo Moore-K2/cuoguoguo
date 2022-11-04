@@ -23,7 +23,9 @@ module.exports = {
     // 配置代理服务器，解决跨域问题
     devServer: {
         proxy: {
+            //带有'moore'的请求就发给后端接口
             '/moore': {
+                //后端接口
                 target: 'http://localhost:5000',
                 pathRewrite: { '^/moore': '' },
                 ws: true,

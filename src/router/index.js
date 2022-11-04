@@ -11,7 +11,7 @@ const routes = [{
     path: '/',
     name: 'Main',
     redirect: 'home', // 路由重定向-跳转到主页
-    // component: Home
+    // 将path-componnet资源映射起来
     component: () =>
         import ("../views/Main.vue"),
     children: [{
