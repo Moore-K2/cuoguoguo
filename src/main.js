@@ -44,10 +44,15 @@ import {
 import 'element-ui/lib/theme-chalk/index.css';
 import "./assets/less/index.css"
 
+import VideoPlayer from 'vue-video-player';
+import 'video.js/dist/video-js.css'
+
 import router from "./router/index.js"
 import store from "./store/index.js"
+require('vue-video-player/src/custom-theme.css')
 
-// 按需使用
+Vue.use(VideoPlayer)
+    // 按需使用
 Vue.use(Button)
 Vue.use(Row)
 Vue.use(Radio)

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="aside">
     <el-menu
       default-active="1-4-1"
       text-color="#282c34"
