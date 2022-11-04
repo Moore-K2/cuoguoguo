@@ -1,8 +1,33 @@
 <template>
   <div>
+    <el-row type="flex" justify="center" align="middle" style="margin: auto">
+      <el-button :type="classType1" @click="selectType('classType1', 1, 24)"
+        >单屏
+      </el-button>
+      <el-button :type="classType2" @click="selectType('classType2', 4, 12)"
+        >四分屏
+      </el-button>
+      <el-button :type="classType3" @click="selectType('classType3', 9, 8)"
+        >九分屏
+      </el-button>
+      <el-button :type="classType4" @click="selectType('classType4', 16, 6)"
+        >十六分屏
+      </el-button>
+      <el-button @click="handleFullScreen">全屏 </el-button>
+    </el-row>
     <el-row :gutter="15">
       <el-col :span="4">
         <div>
+          <div style="text-align: center">
+            <img
+              src="@/assets/img/user2.png"
+              style="
+                width: 100px;
+                background-color: transparent;
+                border-radius: 50%;
+              "
+            />
+          </div>
           <el-tree
             class="filter-tree"
             :data="data"
@@ -234,6 +259,8 @@ export default {
     filterNode(value, data) {
       console.log("value:", value, "data:", data);
     },
+    selectType() {},
+    handleFullScreen() {},
   },
 };
 </script>
