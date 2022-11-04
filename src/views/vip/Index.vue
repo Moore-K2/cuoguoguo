@@ -254,7 +254,9 @@ export default {
   methods: {
     nodeClick(data) {
       console.log("data:", data);
-      this.playerOptions["sources"][0].src = data.url;
+      setTimeout(() => {
+        this.playerOptions["sources"][0].src = data.url;
+      }, 2000);
     },
     filterNode(value, data) {
       console.log("value:", value, "data:", data);
@@ -267,7 +269,7 @@ export default {
 
 <style>
 .vcontainer {
-  width: 100%;
+  width: 90%;
   height: 90%;
   border: 1px solid red;
   display: flex;
