@@ -3,7 +3,10 @@
     <el-container style="height: 100%">
       <!-- auto代表侧边栏是可以拉伸的 -->
       <!-- 1。侧边导航栏 -->
-      <el-aside width="auto" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.4)">
+      <el-aside
+        width="auto"
+        style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); overflow: hidden"
+      >
         <!-- 引入侧边栏CommonAside（公共）组件 -->
         <CommonAside></CommonAside>
       </el-aside>

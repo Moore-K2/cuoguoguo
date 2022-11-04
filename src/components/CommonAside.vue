@@ -12,11 +12,11 @@
       <span class="super">
         <img
           :src="superimg"
-          :style="isCollapse ? 'display:none' : 'display:block'"
+          :style="isCollapse ? 'visibility:hidden' : 'visibility:visible'"
           alt=""
         />
       </span>
-      <h3 :style="isCollapse ? 'color: red;margin-top:30px' : 'color:#409eff'">
+      <h3 :style="isCollapse ? 'color: red;' : 'color:#409eff'">
         {{ isCollapse ? "Moore" : "光之国 " }}
       </h3>
       <!-- 菜单：遍历首页，数据，提现，订单，门店，会员，账号，运营，设置 -->
