@@ -40,15 +40,21 @@ import {
     MessageBox,
     Message,
     Footer,
-    Popover
+    Popover,
+    Tree
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import "./assets/less/index.css"
 
+import VideoPlayer from 'vue-video-player';
+import 'video.js/dist/video-js.css'
+
 import router from "./router/index.js"
 import store from "./store/index.js"
+require('vue-video-player/src/custom-theme.css')
 
-// 按需使用
+Vue.use(VideoPlayer)
+    // 按需使用
 Vue.use(Button)
 Vue.use(Row)
 Vue.use(Radio)
@@ -83,6 +89,7 @@ Vue.use(Option)
 Vue.use(Pagination)
 Vue.use(Footer)
 Vue.use(Popover)
+Vue.use(Tree)
 
 Vue.prototype.$confirm = MessageBox.confirm // 绑定messagebox的confirm到全局上
 Vue.prototype.$message = Message // 绑定message到全局上
